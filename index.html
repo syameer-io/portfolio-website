@@ -3,44 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of a Netcentric Student at UiTM aspiring to become a Full-Stack Developer">
-    <meta name="keywords" content="Full-Stack Developer, Netcentric, UiTM, Web Development, Portfolio">
-    <meta name="author" content="Your Name">
-    <title>Your Name - Full-Stack Developer Portfolio</title>
-    
-    <!-- Favicon -->
+    <meta name="description" content="Portfolio of Syameer Anwari Zuhairi — Computer Science student at UiTM specializing in Netcentric Computing, Full-Stack Developer with 2+ years of experience">
+    <meta name="keywords" content="Syameer Anwari, Full-Stack Developer, Netcentric Computing, UiTM, Laravel, PHP, Flutter, Web Development, Portfolio">
+    <meta name="author" content="Syameer Anwari Zuhairi">
+    <title>Syameer Anwari — Full-Stack Developer</title>
+
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Main Stylesheet -->
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+
     <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
-        <div class="loader">
-            <div class="loader-circle"></div>
-            <p class="loader-text">Loading Portfolio...</p>
+        <div class="loader-content">
+            <div class="loader-logo">SA<span>.</span></div>
+            <div class="loader-bar">
+                <div class="loader-fill"></div>
+            </div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home" class="nav-logo-link">
-                    <span class="logo-text">Portfolio</span>
-                </a>
-            </div>
-            <div class="nav-menu" id="nav-menu">
+    <nav id="navbar" class="navbar">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo">SA<span class="logo-dot">.</span></a>
+            <div class="nav-links" id="nav-links">
                 <a href="#home" class="nav-link active" data-section="home">Home</a>
                 <a href="#about" class="nav-link" data-section="about">About</a>
                 <a href="#skills" class="nav-link" data-section="skills">Skills</a>
@@ -48,233 +52,235 @@
                 <a href="#education" class="nav-link" data-section="education">Education</a>
                 <a href="#contact" class="nav-link" data-section="contact">Contact</a>
             </div>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <a href="#contact" class="nav-cta">Let's Talk</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-inner">
+            <a href="#home" class="mobile-link" data-section="home">Home</a>
+            <a href="#about" class="mobile-link" data-section="about">About</a>
+            <a href="#skills" class="mobile-link" data-section="skills">Skills</a>
+            <a href="#projects" class="mobile-link" data-section="projects">Projects</a>
+            <a href="#education" class="mobile-link" data-section="education">Education</a>
+            <a href="#contact" class="mobile-link" data-section="contact">Contact</a>
+            <div class="mobile-menu-footer">
+                <div class="mobile-socials">
+                    <a href="https://github.com/syameer-io" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/syameer-anwari-zuhairi-960b1825b/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="hero-container">
+    <main>
+        <!-- ===== HERO ===== -->
+        <section id="home" class="hero">
+            <div class="hero-bg">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
+                <canvas id="hero-canvas"></canvas>
+            </div>
+            <div class="container hero-grid">
                 <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 class="hero-title">
-                            <span class="greeting">Hello, I'm</span>
-                            <span class="name">Your Name</span>
-                            <span class="profession">Aspiring Full-Stack Developer</span>
-                        </h1>
-                        <p class="hero-description">
-                            A passionate Netcentric student at UiTM with a vision to become a skilled full-stack developer. 
-                            I'm dedicated to creating beautiful, functional web applications that solve real-world problems.
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Available for opportunities
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="hero-greeting">Hello, I'm</span>
+                        <span class="hero-name" id="hero-name">Syameer Anwari</span>
+                        <span class="hero-role"><span class="text-gradient">Full-Stack</span> Developer</span>
+                    </h1>
+                    <p class="hero-desc">
+                        A proactive and ambitious Computer Science student at UiTM Jasin, specializing in
+                        Netcentric Computing, with two years of hands-on experience in full-stack web development.
+                        Passionate about building innovative and scalable applications.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn-glow">
+                            <span>Get In Touch</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="Resume - Syameer Anwari.pdf" download class="btn-outline" id="download-cv">
+                            <i class="fas fa-download"></i>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Technologies</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image-frame">
+                            <div class="image-placeholder">
+                                <i class="fas fa-user"></i>
+                                <span>Your Photo</span>
+                            </div>
+                        </div>
+                        <span class="float-badge badge-1"><i class="fab fa-laravel"></i></span>
+                        <span class="float-badge badge-2"><i class="fab fa-php"></i></span>
+                        <span class="float-badge badge-3"><i class="fab fa-js"></i></span>
+                        <span class="float-badge badge-4"><i class="fas fa-mobile-alt"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-cue">
+                <span>Scroll</span>
+                <div class="scroll-line">
+                    <div class="scroll-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT ===== -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">01 &mdash; About Me</span>
+                    <h2 class="section-title">Get to know my<br><span class="text-gradient">story &amp; aspirations</span></h2>
+                </div>
+                <div class="bento-grid">
+                    <div class="bento-card bento-story reveal">
+                        <h3>My Story</h3>
+                        <p>
+                            I'm currently pursuing a Bachelor of Computer Science (Hons.) in Netcentric Computing at
+                            Universiti Teknologi MARA (UiTM) Jasin, maintaining a CGPA of 3.69. I previously completed
+                            my Diploma in Computer Science at UiTM with a CGPA of 3.67 and received the Vice Chancellor's Award (ANC).
                         </p>
-                        <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary">
-                                <i class="fas fa-envelope"></i>
-                                Get In Touch
-                            </a>
-                            <a href="#" class="btn btn-secondary" id="download-cv">
-                                <i class="fas fa-download"></i>
-                                Download CV
-                            </a>
-                        </div>
+                        <p>
+                            With two years of hands-on experience in full-stack web development, including a role as a
+                            Junior Software Engineer at Orpheus Capital Sdn. Bhd, I've worked on third-party integrations,
+                            UI/UX improvements, and feature development. I'm passionate about building innovative and
+                            scalable applications using technologies like Laravel, Flutter, and modern web frameworks.
+                        </p>
                     </div>
-                    <div class="hero-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user-circle"></i>
-                            <p>Profile Photo</p>
-                        </div>
+                    <div class="bento-card bento-edu reveal">
+                        <div class="bento-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>Education</h4>
+                        <p>BSc. Netcentric Computing at UiTM &bull; CGPA 3.69</p>
                     </div>
-                </div>
-                <div class="scroll-indicator">
-                    <div class="scroll-arrow">
-                        <i class="fas fa-chevron-down"></i>
+                    <div class="bento-card bento-goal reveal">
+                        <div class="bento-icon"><i class="fas fa-rocket"></i></div>
+                        <h4>Experience</h4>
+                        <p>Junior Software Engineer &bull; Orpheus Capital</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">Get to know more about my journey and aspirations</p>
-                </div>
-                <div class="about-content">
-                    <div class="about-text">
-                        <div class="about-intro">
-                            <h3>My Story</h3>
-                            <p>
-                                I'm currently pursuing my studies in Netcentric Computing at Universiti Teknologi MARA (UiTM), 
-                                where I'm building a solid foundation in web technologies, networking, and software development.
-                            </p>
-                            <p>
-                                My passion lies in full-stack development, and I'm constantly learning new technologies and 
-                                frameworks to expand my skillset. I believe in creating applications that are not just 
-                                functional, but also provide excellent user experiences.
-                            </p>
-                        </div>
-                        <div class="about-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <div>
-                                    <h4>Education</h4>
-                                    <p>Netcentric Computing at UiTM</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-bullseye"></i>
-                                <div>
-                                    <h4>Goal</h4>
-                                    <p>Become a Full-Stack Developer</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-code"></i>
-                                <div>
-                                    <h4>Focus</h4>
-                                    <p>Web Development & UI/UX</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="bento-card bento-focus reveal">
+                        <div class="bento-icon"><i class="fas fa-code"></i></div>
+                        <h4>Focus</h4>
+                        <p>Full-Stack Web &amp; Mobile Development</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills-section">
+        <!-- ===== SKILLS ===== -->
+        <section id="skills" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Skills & Technologies</h2>
-                    <p class="section-subtitle">Technologies I'm learning and working with</p>
+                    <span class="section-tag">02 &mdash; Skills</span>
+                    <h2 class="section-title">Technologies I'm<br><span class="text-gradient">learning &amp; building with</span></h2>
                 </div>
                 <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3 class="category-title">Frontend</h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">HTML5</span>
-                                    <span class="skill-percentage">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="90"></div>
-                                </div>
+                    <div class="skill-card reveal">
+                        <div class="skill-card-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Web Development</h3>
+                        </div>
+                        <div class="skill-chips">
+                            <div class="skill-chip" style="--level: 90%">
+                                <span class="chip-name">Laravel</span>
+                                <span class="chip-pct">90%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">CSS3</span>
-                                    <span class="skill-percentage">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="85"></div>
-                                </div>
+                            <div class="skill-chip" style="--level: 90%">
+                                <span class="chip-name">PHP</span>
+                                <span class="chip-pct">90%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-percentage">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="75"></div>
-                                </div>
+                            <div class="skill-chip" style="--level: 85%">
+                                <span class="chip-name">JavaScript</span>
+                                <span class="chip-pct">85%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">React</span>
-                                    <span class="skill-percentage">60%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="60"></div>
-                                </div>
+                            <div class="skill-chip" style="--level: 90%">
+                                <span class="chip-name">HTML</span>
+                                <span class="chip-pct">90%</span>
+                            </div>
+                            <div class="skill-chip" style="--level: 90%">
+                                <span class="chip-name">CSS</span>
+                                <span class="chip-pct">90%</span>
+                            </div>
+                            <div class="skill-chip" style="--level: 80%">
+                                <span class="chip-name">CodeIgniter</span>
+                                <span class="chip-pct">80%</span>
                             </div>
                         </div>
                     </div>
-                    <div class="skill-category">
-                        <h3 class="category-title">Backend</h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Node.js</span>
-                                    <span class="skill-percentage">65%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="65"></div>
-                                </div>
+                    <div class="skill-card reveal">
+                        <div class="skill-card-header">
+                            <i class="fas fa-server"></i>
+                            <h3>Backend &amp; Database</h3>
+                        </div>
+                        <div class="skill-chips">
+                            <div class="skill-chip" style="--level: 85%">
+                                <span class="chip-name">MySQL</span>
+                                <span class="chip-pct">85%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Express.js</span>
-                                    <span class="skill-percentage">60%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="60"></div>
-                                </div>
+                            <div class="skill-chip" style="--level: 65%">
+                                <span class="chip-name">Node.js</span>
+                                <span class="chip-pct">65%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">MongoDB</span>
-                                    <span class="skill-percentage">55%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="55"></div>
-                                </div>
+                            <div class="skill-chip" style="--level: 60%">
+                                <span class="chip-name">Java</span>
+                                <span class="chip-pct">60%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">MySQL</span>
-                                    <span class="skill-percentage">70%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="70"></div>
-                                </div>
+                            <div class="skill-chip" style="--level: 60%">
+                                <span class="chip-name">Python</span>
+                                <span class="chip-pct">60%</span>
                             </div>
                         </div>
                     </div>
-                    <div class="skill-category">
-                        <h3 class="category-title">Tools & Others</h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Git & GitHub</span>
-                                    <span class="skill-percentage">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="80"></div>
-                                </div>
+                    <div class="skill-card reveal">
+                        <div class="skill-card-header">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Mobile &amp; Tools</h3>
+                        </div>
+                        <div class="skill-chips">
+                            <div class="skill-chip" style="--level: 65%">
+                                <span class="chip-name">Flutter</span>
+                                <span class="chip-pct">65%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">VS Code</span>
-                                    <span class="skill-percentage">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="95"></div>
-                                </div>
+                            <div class="skill-chip" style="--level: 60%">
+                                <span class="chip-name">Dart</span>
+                                <span class="chip-pct">60%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Responsive Design</span>
-                                    <span class="skill-percentage">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="85"></div>
-                                </div>
+                            <div class="skill-chip" style="--level: 65%">
+                                <span class="chip-name">Network Analysis</span>
+                                <span class="chip-pct">65%</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">UI/UX Design</span>
-                                    <span class="skill-percentage">70%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="70"></div>
-                                </div>
+                            <div class="skill-chip" style="--level: 65%">
+                                <span class="chip-name">Software Analysis</span>
+                                <span class="chip-pct">65%</span>
                             </div>
                         </div>
                     </div>
@@ -282,101 +288,90 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects-section">
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Projects</h2>
-                    <p class="section-subtitle">Showcase of my development work and learning projects</p>
+                    <span class="section-tag">03 &mdash; Projects</span>
+                    <h2 class="section-title">Showcase of my<br><span class="text-gradient">development work</span></h2>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card">
+                    <div class="project-card reveal">
                         <div class="project-image">
-                            <div class="image-placeholder">
-                                <i class="fas fa-code"></i>
-                                <p>Project Screenshot</p>
+                            <div class="project-placeholder ph-1">
+                                <i class="fas fa-gamepad"></i>
                             </div>
                             <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="project-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
+                                <a href="https://github.com/syameer-io" target="_blank" rel="noopener noreferrer" class="project-btn"><i class="fab fa-github"></i></a>
+                                <a href="https://playglyph.me" target="_blank" rel="noopener noreferrer" class="project-btn"><i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Portfolio Website</h3>
-                            <p class="project-description">
-                                A responsive personal portfolio website built with HTML, CSS, and JavaScript 
-                                featuring a modern dark theme and smooth animations.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">JavaScript</span>
+                        <div class="project-body">
+                            <h3>Glyph &mdash; Social Gaming Hub</h3>
+                            <p>A full-stack social gaming platform built with Laravel. Integrated Steam API for authentication, Agora.io for real-time voice chat, Telegram Bot API for notifications, and custom team matchmaking algorithm.</p>
+                            <div class="project-tags">
+                                <span>Laravel</span>
+                                <span>Steam API</span>
+                                <span>Agora.io</span>
+                                <span>Telegram API</span>
                             </div>
                         </div>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card reveal">
                         <div class="project-image">
-                            <div class="image-placeholder">
-                                <i class="fas fa-tasks"></i>
-                                <p>Coming Soon</p>
+                            <div class="project-placeholder ph-2">
+                                <i class="fas fa-brain"></i>
                             </div>
                             <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="project-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
+                                <a href="https://github.com/syameer-io" target="_blank" rel="noopener noreferrer" class="project-btn"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Task Management App</h3>
-                            <p class="project-description">
-                                A full-stack task management application with user authentication, 
-                                real-time updates, and responsive design.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
+                        <div class="project-body">
+                            <h3>AI StudyMate</h3>
+                            <p>An AI-powered study companion mobile app using Flutter and Firebase. Features Google Gemini AI for note summarization and flashcard generation, Google Cloud Vision OCR for text extraction, and a custom exam tracker RESTful API built with Laravel.</p>
+                            <div class="project-tags">
+                                <span>Flutter</span>
+                                <span>Firebase</span>
+                                <span>Laravel</span>
+                                <span>Gemini AI</span>
                             </div>
                         </div>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card reveal">
                         <div class="project-image">
-                            <div class="image-placeholder">
-                                <i class="fas fa-shopping-cart"></i>
-                                <p>In Planning</p>
+                            <div class="project-placeholder ph-3">
+                                <i class="fas fa-map-marked-alt"></i>
                             </div>
                             <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="project-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
+                                <a href="https://github.com/syameer-io" target="_blank" rel="noopener noreferrer" class="project-btn"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">E-Commerce Platform</h3>
-                            <p class="project-description">
-                                A comprehensive e-commerce solution with payment integration, 
-                                inventory management, and admin dashboard.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Express</span>
-                                <span class="tech-tag">MySQL</span>
+                        <div class="project-body">
+                            <h3>MelakaYourWay</h3>
+                            <p>A Melaka tourism mobile application for Android using Flutter. Integrated Firebase Authentication for secure login and Google Geolocation API for location-based features and navigation for tourists exploring Melaka.</p>
+                            <div class="project-tags">
+                                <span>Flutter</span>
+                                <span>Firebase</span>
+                                <span>Google API</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <div class="project-placeholder ph-1">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://github.com/syameer-io" target="_blank" rel="noopener noreferrer" class="project-btn"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Phishing Email Detection Tool</h3>
+                            <p>A Python-based application to identify phishing emails and potential scam attempts through pattern analysis and heuristic detection. Developed as a group project for Digital Forensic coursework.</p>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>Digital Forensics</span>
+                                <span>Security</span>
                             </div>
                         </div>
                     </div>
@@ -384,133 +379,118 @@
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section id="education" class="education-section">
+        <!-- ===== EDUCATION ===== -->
+        <section id="education" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Education & Journey</h2>
-                    <p class="section-subtitle">My academic background and learning path</p>
+                    <span class="section-tag">04 &mdash; Education</span>
+                    <h2 class="section-title">My academic path &amp;<br><span class="text-gradient">professional journey</span></h2>
                 </div>
                 <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024 - Present</div>
-                            <h3 class="timeline-title">Bachelor's in Netcentric Computing</h3>
-                            <p class="timeline-institution">Universiti Teknologi MARA (UiTM)</p>
-                            <p class="timeline-description">
-                                Currently pursuing a comprehensive program covering web technologies, 
-                                networking protocols, software development, and system administration.
-                            </p>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">Mar 2024 &mdash; Present</span>
+                            <h3>Bachelor of Computer Science (Hons.) Netcentric Computing</h3>
+                            <span class="timeline-place">Universiti Teknologi MARA (UiTM) Jasin &bull; CGPA: 3.69</span>
+                            <p>Currently pursuing a comprehensive program covering web technologies, networking protocols, netcentric computing, and full-stack software development.</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024</div>
-                            <h3 class="timeline-title">Self-Learning Journey</h3>
-                            <p class="timeline-institution">Online Platforms</p>
-                            <p class="timeline-description">
-                                Actively learning full-stack development through various online resources, 
-                                building projects, and contributing to open-source initiatives.
-                            </p>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">Mar 2023 &mdash; Feb 2024</span>
+                            <h3>Junior Software Engineer</h3>
+                            <span class="timeline-place">Orpheus Capital Sdn. Bhd</span>
+                            <p>Supported successful integration with major third parties such as MySyarikat. Led UI/UX improvements of the web interface. Maintained web application workflows and implemented new features including payment summary and disbursing information. Supported mobile app development planning.</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">Future Goals</div>
-                            <h3 class="timeline-title">Full-Stack Developer Career</h3>
-                            <p class="timeline-institution">Professional Development</p>
-                            <p class="timeline-description">
-                                Aiming to secure a position as a full-stack developer where I can contribute 
-                                to meaningful projects and continue growing my technical expertise.
-                            </p>
+                    <div class="timeline-item reveal">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">Mar 2021 &mdash; Sep 2023</span>
+                            <h3>Diploma of Computer Science</h3>
+                            <span class="timeline-place">Universiti Teknologi MARA (UiTM) &bull; CGPA: 3.67 &bull; Vice Chancellor's Award (ANC)</span>
+                            <p>Completed a comprehensive diploma program building a strong foundation in computer science fundamentals, programming, databases, and software engineering. Graduated with distinction and received the Vice Chancellor's Award.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
+        <!-- ===== CONTACT ===== -->
+        <section id="contact" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Let's connect and discuss opportunities</p>
+                    <span class="section-tag">05 &mdash; Contact</span>
+                    <h2 class="section-title">Let's connect &amp;<br><span class="text-gradient">build something together</span></h2>
                 </div>
-                <div class="contact-content">
-                    <div class="contact-info">
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
-                            <div class="contact-details">
-                                <h3>Email</h3>
-                                <p>your.email@example.com</p>
+                            <div>
+                                <h4>Email</h4>
+                                <p>syameer.anwari@gmail.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
-                            <div class="contact-details">
-                                <h3>Phone</h3>
-                                <p>+60 xxx-xxx-xxxx</p>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>(+60) 18-3837061</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
-                            <div class="contact-details">
-                                <h3>Location</h3>
-                                <p>Malaysia</p>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Jasin, Melaka, Malaysia</p>
                             </div>
                         </div>
-                        <div class="social-links">
-                            <a href="#" class="social-link">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="fab fa-instagram"></i>
-                            </a>
+                        <div class="contact-socials">
+                            <a href="https://github.com/syameer-io" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/syameer-anwari-zuhairi-960b1825b/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
-                    <div class="contact-form">
-                        <form id="contact-form" class="form">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" class="form-input" required>
-                                <label for="name" class="form-label">Full Name</label>
-                                <div class="form-error" id="name-error"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" class="form-input" required>
-                                <label for="email" class="form-label">Email Address</label>
-                                <div class="form-error" id="email-error"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="subject" name="subject" class="form-input" required>
-                                <label for="subject" class="form-label">Subject</label>
-                                <div class="form-error" id="subject-error"></div>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" name="message" class="form-input form-textarea" rows="5" required></textarea>
-                                <label for="message" class="form-label">Message</label>
-                                <div class="form-error" id="message-error"></div>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-full">
-                                <i class="fas fa-paper-plane"></i>
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
+                    <form id="contact-form" class="contact-form reveal">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" class="form-input" placeholder=" " required>
+                            <label for="name" class="form-label">Full Name</label>
+                            <div class="form-error" id="name-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" class="form-input" placeholder=" " required>
+                            <label for="email" class="form-label">Email Address</label>
+                            <div class="form-error" id="email-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder=" " required>
+                            <label for="subject" class="form-label">Subject</label>
+                            <div class="form-error" id="subject-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" class="form-input form-textarea" rows="5" placeholder=" " required></textarea>
+                            <label for="message" class="form-label">Message</label>
+                            <div class="form-error" id="message-error"></div>
+                        </div>
+                        <button type="submit" class="btn-glow btn-full">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -519,16 +499,16 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 Your Name. All rights reserved.</p>
-                <p>Built with passion and dedication to becoming a full-stack developer.</p>
+            <div class="footer-inner">
+                <p>&copy; 2025 Syameer Anwari Zuhairi. All rights reserved.</p>
+                <p class="footer-sub">Built with passion &amp; dedication to full-stack development.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
+    <!-- Back to Top -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- JavaScript -->
